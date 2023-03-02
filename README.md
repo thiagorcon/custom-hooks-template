@@ -1,4 +1,4 @@
-# customhooks-template
+# Custom Hooks - Template de Aula
 
 ### Comandos para rodar o template:
 ```
