@@ -2,7 +2,7 @@
 
 ### Comandos para rodar o template:
 ```
-cd customhooks
+cd custom-hooks
 npm rum start
 ```
 
