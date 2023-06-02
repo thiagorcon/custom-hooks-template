@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { BASE_URL } from "../constants/constants";
 import axios from "axios";
 import {Title,NameContainer } from '../style'
-import { Header } from '../components/Header/Header'
 import { Card } from '../components/Card/Card'
 
 
