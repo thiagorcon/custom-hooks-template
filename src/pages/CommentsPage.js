@@ -18,7 +18,7 @@ const  CommentsPage = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   return (
     <div>
