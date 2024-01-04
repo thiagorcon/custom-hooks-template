@@ -1,30 +1,20 @@
-import { useState, useEffect } from "react";
-import { BASE_URL } from "../constants/constants";
-import axios from "axios";
+
 import {Title,NameContainer } from '../style'
 import { Card } from '../components/Card/Card'
 
+import useRequestData from "../hooks/UseRequestData";
+
 
 const UserNamesPage = () => {
-  const [nomeUsuarios, setNomeUsuarios] = useState([]);
- 
-
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}users`)
-      .then((response) => {
-        setNomeUsuarios(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  
+  const [nomeUsuarios,isLoading] = useRequestData('users')
 
   return (
     <div>
       <Title>Nomes dos usuários</Title>
       <NameContainer>
-        {nomeUsuarios.map((usuario) => {
+        {isLoading && <p>Carregando...</p>}
+        {!isLoading && nomeUsuarios.length > 0 && nomeUsuarios.map((usuario) => {
           return(
           <Card 
           key={usuario.id} 
@@ -33,6 +23,8 @@ const UserNamesPage = () => {
           textColor={'nome'}
           />)
         })}
+        {/* se o setData no UseRequest extiver sem nada ou com [] o código abaixo funciona  */}
+        {!isLoading && nomeUsuarios.length == 0 && <p>Sem usuários</p>}
       </NameContainer>
     </div>
   );
